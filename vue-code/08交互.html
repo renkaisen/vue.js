@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../百度下拉菜单/list/vue.js"></script>
+	<script src="../百度下拉菜单/list/vue-resource.js"></script>
+</head>
+
+<body>
+
+	<div id="box">
+		<input type="button" value="按钮" v-on:click = 'get()'>
+		{{naem}}
+	</div>
+</body>
+</html>
+<script>
+	window.onlaod = function () {
+		new Vue({
+			el:'#box',
+			data:{
+				naem:'ss'
+			},
+			methods:{
+				get:function(){
+					alert(1);
+					this.$http.jsonp('https://sug.so.360.cn/suggest',
+						{word:'a'}).then(function(res){
+							alert(res.data.s)
+						},
+						function(res){
+							alert(res.status);
+						});
+				}
+			}
+
+		});
+	};
+</script>

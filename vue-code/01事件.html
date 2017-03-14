@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01事件</title>
+	<script src="../vue/dist/vue.min.js"></script>
+	<script>
+		window.onload = function () {
+			//创建实例
+			new Vue({
+				el:'#box',
+				data:{
+					 arr:['2','ss','ddd'],
+					 name:'222'
+				},
+				methods:{
+					show:function(e,s){
+						// alert(1);
+						//输出鼠标点击位置，有$event 事件
+						console.log(e.clientX);
+						console.log(s);
+					}
+				}
+			})
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<input type="button" value="按钮" @click = 'show($event,2)'>
+		{{name}}
+		<li v-for= 'item in arr'>{{item}} {{$index}}</li>
+	</div>
+</body>
+</html>

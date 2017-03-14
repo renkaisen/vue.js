@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../vue/dist/vue.js"></script>
+	<script>
+
+	window.onload=function () {
+			//创建实例
+		var app = new Vue({
+			el:'.ss',
+			data:{
+				myDaty:['1','2','33','4']
+			},
+			methods:{
+				show:function(){
+					alert(1)
+				}
+			}
+		});
+
+	}
+
+	</script>
+</head>
+<body>
+	<div class="ss">
+		<li v-for = 'item in myDaty'>{{item}}</li>
+		<input type="text" @keyup.left = 'show()'>
+
+	</div>
+	<!-- <div v-for = 'item in myDaty'>{{item}} {{$index}}</div> -->
+
+</body>
+</html>

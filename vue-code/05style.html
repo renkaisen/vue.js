@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>style</title>
+	<script src="../lib/vue.js"></script>
+	<style>
+		.red{
+			color: red;
+		}
+		.blue{
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<strong :style = 'a'>文字</strong>
+		<strong :class = 'a'>哈哈</strong>
+	</div>
+</body>
+</html>
+
+<!-- //1,第一是style样式，直接在数据中，写样式，然后绑定到数据中 -->
+<!-- 2，class设置，样式写好之后，然后也添加到数据中 -->
+<script>
+	window.onload = function () {
+		new Vue({
+			el:'.box',
+			data:{
+				a:{
+					red:'true',
+					blue:'true'
+				}
+			},
+			methods:{
+
+			}
+		})
+	}
+</script>

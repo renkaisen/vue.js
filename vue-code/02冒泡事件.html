@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01事件</title>
+	<script src="../vue/dist/vue.min.js"></script>
+	<script>
+		window.onload = function () {
+			//创建实例
+			new Vue({
+				el:'#box',
+				data:{
+					 name:'222'
+				},
+				methods:{
+					show:function(){
+						alert(1);
+						// ev.cancelBubble = true;
+					},
+					show1:function(){
+						alert(2);
+					}
+				}
+			})
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div @click = 'show1()'>
+			<input type="button" value="按钮" @click.stop = 'show()'>
+		</div>
+	</div>
+</body>
+</html>

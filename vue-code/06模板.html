@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.red{
+			color: red;
+		}
+		.blue{
+			background: blue;
+		}
+
+
+	</style>
+	<script src="../vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<input type="text" v-model = 'msg'>
+		<br>
+		<br>
+		{{msg}}
+
+	</div>
+</body>
+</html>
+<script>
+	window.onload = function  (){
+		new Vue({
+			el:'#box',
+			data:{
+				msg:'abc'
+			}
+		})
+	}
+</script>
