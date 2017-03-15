@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<input type="text" @keydown.myenter = 'show()'>
+	</div>
+</body>
+</html>
+<script>
+	Vue.directive('on').keyCodes.ctrl = 17;
+	Vue.directive('on').keyCodes.myenter =13;
+	var vm = new Vue({
+		el:'#box',
+		data:{
+			a:'blue'
+		},
+		methods:{
+			show:function () {
+				alert(1);
+			}
+		}
+	})
+</script>

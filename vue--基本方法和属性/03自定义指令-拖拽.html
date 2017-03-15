@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<div v-sec :style = {width:'100px',height:'100px',background:'blue',position:'absolute',right:'0px',top:'0'}></div>
+	</div>
+</body>
+</html>
+<script>
+
+//自定义指令,第一个参数是指令名，第二个是函数
+	Vue.directive('sec',function () {
+		var oDiv = this.el;
+		//当点击按下；鼠标按下
+		oDiv.onmousedown = function(ev){
+			var disX = ev.clientX-oDiv.offsetLeft;
+			var disY = ev.clientY - oDiv.offsetTop;
+			//按下鼠标，开始滑动
+			document.onmousemove = function(ev){
+				var l = ev.clientX - disX;
+				var t = ev.clientY - disY;
+
+				oDiv.style.left = l+'px';
+				oDiv.style.top = t+'px';
+
+			};
+			document.onmouseup = function(){
+				document.onmousemove  = null;
+				document.onmouseup = null;
+			}
+		}
+	})
+
+
+
+	var vm = new Vue({
+		el:'#box',
+		data:{
+			msg:'welcome'
+		}
+	})
+
+
+
+</script>

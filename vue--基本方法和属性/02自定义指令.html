@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义指令</title>
+	<script src="vue.js"></script>
+	<script>
+	window.onload = function () {
+
+
+		//自定义指令.第一个参数是指令名，不用写V，自定义指令必须加V
+		Vue.directive('red',function(){
+			this.el.style.background = 'red';
+		})
+			var vm = new Vue({
+				el:'#box',
+			data:{
+				aaa:11
+			},
+			methods:{}
+		})
+	}
+	</script>
+</head>
+<body>
+	<div id="box" v-red>
+		aaaa
+	</div>
+</body>
+</html>
+<script>
+
+	var a = 1;
+	while(a){
+		console.log('tt');
+	}
+	setTimeout(function(){
+		a = 0;
+	},3000)
+</script>
