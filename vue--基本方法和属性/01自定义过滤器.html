@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+
+	<div class="box">
+		{{a | data}}
+		{{a}}
+	</div>
+
+</body>
+</html>
+<script>
+	window.onload = function () {
+		//创建自定义过滤器
+		//第一个参数是，过滤器名称，第二个参数是函数，函数参数是输入的数据
+		Vue.filter('data',function(input){
+			console.log(input);
+			var oDate = new Date(input);
+			//return  出来就可以了
+			return oDate.getFullYear()+'-'+(oDate.getMonth()+1)+'-'+oDate.getDate()+ ' '+oDate.getHours()+':'+oDate.getMinutes()+':'+oDate.getSeconds();
+		})
+
+
+
+		//创建实例；vm
+		var vm = new Vue({
+			//数据
+			data:{
+				a:Date.now()
+				// a:'aaa'
+			},
+			//方法
+			methods:{
+
+			}
+			//加载器
+		}).$mount('.box');
+	}
+</script>

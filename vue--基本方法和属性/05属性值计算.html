@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+<div id="box">
+        a => {{a}}
+        <br>
+        b => {{b}}
+    </div>
+    <script>
+        var vm=new Vue({
+            el:'#box',
+            data:{
+                a:1
+            },
+            computed:{
+                b:{
+                	//获取值
+                    get:function(){
+                        return this.a+2;
+                    },
+                    //设置值
+                    set:function(val){
+                        this.a=val;
+                    }
+                }
+            }
+        });
+        document.onclick=function(){
+            vm.b=10;
+        };
+    </script>
+
+</body>
+</html>
